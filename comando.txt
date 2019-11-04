@@ -1,0 +1,93 @@
+Comandos utilizado durante o curso.
+
+git checkout master --> Alterando a versão da branch para master
+
+git add . --> adiciona todos os arquivos na área de stage
+
+git commit -m "nome_do_commit" --> commitar arquivos da área de stage
+
+git push origin master --> envia commits para o repositório remoto 
+
+git revert hash_do_commit --> reverte um commit mantendo o histórico (irá aparecer uma tela com nome do commit e do que será alterado, para confirmar digite :wq depois enter)
+
+git log --> histórico de commits
+
+git reset --hard hash_do_commit --> retorna para o commit selecionado, apaga os commits depois dele, e ignora tudo que foi feito depois dele.
+
+git reset --soft hash_do_commit --> retorna para o commit selecionado, apaga os commits depois dele, e tudo depois desse commit e enviado para a área de stage.
+
+git reset HEAD nome_arquivo --> desfaz alteração do arquivo.
+
+-- Vantagem do git reset--
+Evita ter commits sujos em nosso repositório. Bom para branches separados.
+
+-- git revert --
+serve para o master
+
+git push origin master --force --> força o master a receber commits local sem a necessidade de fazer o pull da master (não é uma boa prática utilizá-lo na master, mas sim na branch local diferente da master)
+
+--force--
+não recomendado utilizar na master, pois geralmente é utilizado porque ouve alteração no histórico.
+
+git commit --amend --> edita um commit (abrirá o editor de texto do git, após isso aperte a tecla i e faça a edição, depois tecla esc e por último, :wq e tecla enter)
+
+-- git commit --amend --
+Pode ser usado para incrementar alteração feita no último arquivo. Só é útil, se o commit não tiver sido enviado para o repositório remoto, a não ser que seja um branch separada.
+
+git show hash_do_commit --> exibe alteração do commit 
+
+git cherry-pick hash_do_commit --> pega um determinado commit e aplica na branch atual.
+
+git checkout - --> retorna para a branch anterior
+
+git add -p --> adiciona partes do arquivo para o commit
+Stage this hunk [y,n,q,a,d,/,j,J,g,s,e,?]? (trad. Adiciona este pedaço?)
+y= sim
+n= não
+q= não e saia deste menu
+a= adiciona este e todos os outros 
+d= não adiciona este e nem os outros 
+/= 
+j= ir para o próximo
+J=
+g= passar esse e vver o anterior
+s= dividir em partes menores
+e= editar manualmente 
+?=
+
+git rebase -i HEAD~2 --> uni dois commits 
+
+git commit --fixup hash_commit --> fixa um commit a um commit anterior
+
+git rebase -i --autosquash hash_commit --> uni commits fixup, escolha o commit anterior a todos que devem ser unidos.
+
+git pull origin master --rebase --> o rebase corrige conflitos e uni os commits, jogando minhas alterações para o topo.
+
+git pull origin master --> atualiza o repositório local com a master. Cria cronologicamente uma árvore dizendo onde exatamente foi adicionado o commit. Caso haja conflict, utilizar o git status ver quais arquivos e resolver manualmente.
+
+git merge --continue --> após resolver os conflitos manualmente executar este comando para prosseguir com o merge. (Para pull ou rebase, utilizar sempre o --continue)
+
+git config --global help.autocorrect 1 --> Habilita ajuda para comandos digitados incorretamente do git
+
+git archive master --format=zip --output=master.zip --> serve para criar um zip com todo o repositório. 
+
+git log --pretty=oneline --> exibe os log em uma linha
+
+git log --pretty=oneline --graph --> exibe os log em uma linha com gráfico com árvore
+
+git log --pretty=oneline --graph --all --> exibe os log em uma linha com gráfico com árvore de todas as branch
+
+git log --since='Jan 1 2019' --> exibe todos os logs desde da data informada.
+
+git log --until='Jan 6 2019' --> exibe todos os logs até a data informada.
+
+git log --since='Jan 1 2019' --until='Jan 30 2019' --> exibe todos os logs entre as datas informadas.
+
+(o Filtro com data exclui o dia da data informada)
+
+git log --author='João' --> filtra os logs pelo autor.
+
+git shortlog --> log simplificado por autor.
+
+git shortlog -sn --> exibe a quantidade de commits
+
