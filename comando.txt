@@ -89,5 +89,8 @@ git log --author='João' --> filtra os logs pelo autor.
 
 git shortlog --> log simplificado por autor.
 
-git shortlog -sn --> exibe a quantidade de commits
+git shortlog -sn --> exibe a quantidade de commits por usuário.
 
+git log -3 --> exibe os três últimos commits
+
+git reflog --> exibe tudo feito no repositório. inclusive reset e hard
